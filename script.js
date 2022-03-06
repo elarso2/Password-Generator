@@ -13,6 +13,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// create bool variables for the user input after each popup window
 var boolLower = true;
 var boolUpper = true;
 var boolSpecial = true;
@@ -35,8 +36,6 @@ var password = [];
 
 var fullChar =[];
 
-var passwordFinal = [];
-
 
 function generatePassword() {
 // your code goes here
@@ -52,8 +51,15 @@ function generatePassword() {
 // return the password string to user
 }
 
-var charInput = window.prompt("How many characters would you like your password to contain?", "8");
+// asking user for password character length
+var charInput = 0;
 
+while (charInput < 8 ||  charInput > 128){
+    charInput = window.prompt("How many characters would you like your password to contain? ", "Must contain between 8 and 128 characters.");
+}
+     
+
+// Want lowercase letters?
 if (confirm ("Would you like to include lowercase letters?")) {
     boolLower= true;
     var random = Math.floor(Math.random() * lowerCase.length);
@@ -62,6 +68,7 @@ if (confirm ("Would you like to include lowercase letters?")) {
     fullChar = fullChar.concat(lowerCase);
 }
 
+// Want uppercase letters?
 if (confirm ("Would you like to include uppercase letters?")) {
     boolUpper = true;
     var random = Math.floor(Math.random() * upperCase.length);
@@ -70,6 +77,7 @@ if (confirm ("Would you like to include uppercase letters?")) {
     fullChar = fullChar.concat(upperCase);
 }
 
+// Want numbers?
 if (confirm ("Would you like to include numbers?")) {
     boolNumber = true;
     var random = Math.floor(Math.random() * selectNumber.length);
@@ -78,6 +86,7 @@ if (confirm ("Would you like to include numbers?")) {
     fullChar = fullChar.concat(selectNumber);
 }
 
+// Want special characters?
 if (confirm ("Would you like to add special characters?")) {
     boolSpecial = true;
     var random = Math.floor(Math.random() * specialChar.length);
@@ -93,7 +102,7 @@ for (var i = 0; i = charInput - password.length; i++) {
 
 console.log(password.length);
 
-
+// convert password from an array to a string
 let passwordString = password.join("");
 
 console.log(charInput)
