@@ -52,6 +52,8 @@ function generatePassword() {
 // return the password string to user
 }
 
+window.prompt("How many characters would you like your password to contain?", "8");
+
 if (confirm ("Would you like to include lowercase letters?")) {
     boolLower= true;
     var random = Math.floor(Math.random() * lowerCase.length);
@@ -83,6 +85,10 @@ if (confirm ("Would you like to add special characters?")) {
     password.push(specialChar[random]);
     fullChar = fullChar.concat(specialChar);
 }
+
+
+
+
 
 let passwordString = password.join("");
 
