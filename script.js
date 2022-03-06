@@ -38,20 +38,8 @@ var fullChar =[];
 
 
 function generatePassword() {
-// your code goes here
-// get user preferences
-// identify and collect the buckets the user has chosen
-// Create a guaranteed collection (concatonate selected collections into a single, temporary array)
-// create a local password variable that starts as an empty string, an array
-// randomly draw a character from guaranteed collection
-// add character item to the password array/variable
-// repeat as many times as user specified, for loop iterations (i=0, i=user input, i++)
-// loop through the guaranteed and replace elements in password array use : math.floor(math.random)
-// join the characters in the password array into a string
-// return the password string to user
-}
 
-// asking user for password character length
+// asking user for password character length, with range of [8, 128]
 var charInput = 0;
 
 while (charInput < 8 ||  charInput > 128){
@@ -109,3 +97,6 @@ console.log(charInput)
 console.log(fullChar)
 console.log(password)
 console.log(passwordString)
+
+return passwordString;
+}
