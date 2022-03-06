@@ -13,12 +13,10 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var bool_lower = true;
-var bool_upper = true;
-var bool_special = true;
-var bool_nospecial = true;
-var bool_number = true;
-var bool_nonumber = true;
+var boolLower = true;
+var boolUpper = true;
+var boolSpecial = true;
+var boolNumber = true;
 
 // create collections (array) (in global scope) for each character type (capitol, lowercase, number, special character)
 // lowercase
@@ -33,7 +31,9 @@ var specialChar = ["!", "#", "$", "%", "&", "(", ")", "+", "*", "@", "?", "^", "
 // number
 var selectNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-var userPassword = [];
+var password = [];
+
+var fullChar =[];
 
 var charInput = 7;
 
@@ -51,41 +51,41 @@ function generatePassword() {
 // join the characters in the password array into a string
 // return the password string to user
 }
-//fxn for random lowercase
-    function lower(){
-        const random = Math.floor(Math.random() * lowerCase.length);
-        console.log(lowerCase[random]);
-        userPassword.push(lowerCase[random]);
-    }
 
-// fxn for random uppercase
-    function upper(){
-        const random = Math.floor(Math.random() * upperCase.length);
-        console.log(upperCase[random]);
-        userPassword.push(upperCase[random]);
-    }
-
-// fxn for random special char
-    function special(){
-        const random = Math.floor(Math.random() * specialChar.length);
-        console.log(specialChar[random]);
-        userPassword.push(specialChar[random]);
-    }
-
-// fxn for number
-    function number() {
-        const random = Math.floor(Math.random() * selectNumber.length);
-        console.log(selectNumber[random]);
-        userPassword.push(selectNumber[random]);
-    }
-
-
-//for loop for variable count
-for (i=0; i < charInput; i++) {
-    lower()
-    upper()
-    special()
-    number()
+if (confirm ("Would you like to include lowercase letters?")) {
+    boolLower= true;
+    var random = Math.floor(Math.random() * lowerCase.length);
+    console.log(lowerCase[random]);
+    password.push(lowerCase[random]);
+    fullChar = fullChar.concat(lowerCase);
 }
 
-console.log(userPassword)
+if (confirm ("Would you like to include uppercase letters?")) {
+    boolUpper = true;
+    var random = Math.floor(Math.random() * upperCase.length);
+    console.log(upperCase[random]);
+    password.push(upperCase[random]);
+    fullChar = fullChar.concat(upperCase);
+}
+
+if (confirm ("Would you like to include numbers?")) {
+    boolNumber = true;
+    var random = Math.floor(Math.random() * selectNumber.length);
+    console.log(selectNumber[random]);
+    password.push(selectNumber[random]);
+    fullChar = fullChar.concat(selectNumber);
+}
+
+if (confirm ("Would you like to add special characters?")) {
+    boolSpecial = true;
+    var random = Math.floor(Math.random() * specialChar.length);
+    console.log(specialChar[random]);
+    password.push(specialChar[random]);
+    fullChar = fullChar.concat(specialChar);
+}
+
+let passwordString = password.join("");
+
+console.log(fullChar)
+console.log(password)
+console.log(passwordString)
