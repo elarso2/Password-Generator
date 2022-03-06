@@ -33,6 +33,10 @@ var specialChar = ["!", "#", "$", "%", "&", "(", ")", "+", "*", "@", "?", "^", "
 // number
 var selectNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+var userPassword = [];
+
+var charInput = 7;
+
 
 function generatePassword() {
 // your code goes here
@@ -46,29 +50,42 @@ function generatePassword() {
 // loop through the guaranteed and replace elements in password array use : math.floor(math.random)
 // join the characters in the password array into a string
 // return the password string to user
-
+}
 //fxn for random lowercase
     function lower(){
         const random = Math.floor(Math.random() * lowerCase.length);
-        console.log(random, lowerCase[random]);
+        console.log(lowerCase[random]);
+        userPassword.push(lowerCase[random]);
     }
 
 // fxn for random uppercase
-    function upper()}
+    function upper(){
         const random = Math.floor(Math.random() * upperCase.length);
-        console.log(random, upperCase[random]);
+        console.log(upperCase[random]);
+        userPassword.push(upperCase[random]);
     }
 
 // fxn for random special char
     function special(){
         const random = Math.floor(Math.random() * specialChar.length);
-        console.log(random, specialChar[random]);
+        console.log(specialChar[random]);
+        userPassword.push(specialChar[random]);
     }
 
 // fxn for number
     function number() {
         const random = Math.floor(Math.random() * selectNumber.length);
-        console.log(random, selectNumber[random]);
+        console.log(selectNumber[random]);
+        userPassword.push(selectNumber[random]);
     }
 
+
+//for loop for variable count
+for (i=0; i < charInput; i++) {
+    lower()
+    upper()
+    special()
+    number()
 }
+
+console.log(userPassword)
