@@ -84,6 +84,7 @@ if (confirm ("Would you like to add special characters?")) {
     password.push(specialChar[random]);
     fullChar = fullChar.concat(specialChar);
 }
+
 // for loop to select random characters from full list, based on difference of how many characters the user wants and how many base characters they selected.
 var remaining = parseInt(charInput - password.length)
 
@@ -92,6 +93,10 @@ for (var i = 0; i < remaining ;  i++) {
     password.push(fullChar[random]);
 }
 
+// alert for null case, where user declines to include all four types of characters, and is told characters must be selected, and prompted to restart.
+if (password = []) {
+    window.alert("You must select characters to include in your password. Please restart.");
+}
 console.log(password.length);
 
 // convert password from an array to a string
