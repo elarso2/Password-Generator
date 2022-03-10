@@ -84,9 +84,9 @@ if (confirm ("Would you like to add special characters?")) {
     password.push(specialChar[random]);
     fullChar = fullChar.concat(specialChar);
 }
-// for loop to select random characters from full list, using an '=' sign in the middle parameter so that the loop runs only a number of times equivalent to the difference of the user input length and the password length created by the above character selections.
-// set a variable number of remaining characters (rather that middle parameter inside for loop)
+// for loop to select random characters from full list, based on difference of how many characters the user wants and how many base characters they selected.
 var remaining = parseInt(charInput - password.length)
+
 for (var i = 0; i < remaining ;  i++) {
     var random = Math.floor(Math.random() * fullChar.length);
     password.push(fullChar[random]);
