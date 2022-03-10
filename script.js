@@ -32,13 +32,14 @@ var specialChar = ["!", "#", "$", "%", "&", "(", ")", "+", "*", "@", "?", "^", "
 // number
 var selectNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-var password = [];
 
-var fullChar =[];
+
+
 
 
 function generatePassword() {
-
+var password = [];
+var fullChar =[];
 // asking user for password character length, with range of [8, 128]
 var charInput = 0;
 
@@ -46,6 +47,7 @@ while (charInput < 8 ||  charInput > 128){
     charInput = window.prompt("How many characters would you like your password to contain? ", "Must contain between 8 and 128 characters.");
 }
      
+// convert charinput to a number
 
 // Want lowercase letters?
 if (confirm ("Would you like to include lowercase letters?")) {
@@ -83,7 +85,9 @@ if (confirm ("Would you like to add special characters?")) {
     fullChar = fullChar.concat(specialChar);
 }
 // for loop to select random characters from full list, using an '=' sign in the middle parameter so that the loop runs only a number of times equivalent to the difference of the user input length and the password length created by the above character selections.
-for (var i = 0; i = charInput - password.length; i++) {
+// set a variable number of remaining characters (rather that middle parameter inside for loop)
+var remaining = parseInt(charInput - password.length)
+for (var i = 0; i < remaining ;  i++) {
     var random = Math.floor(Math.random() * fullChar.length);
     password.push(fullChar[random]);
 }
