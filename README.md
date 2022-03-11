@@ -4,7 +4,7 @@ This generator needs to accept input from the user about how long they would lik
 
 Once the initial elements have been selected and fullChar has been filled, a mathematical expression is evaluated, which calculates the difference between how many characters the user requested, and how many characters have been placed into the password based on the Boolean values of the previous if loops. This value, called remaining, is then placed into a for loop, where that number of random elements is selected from the fullChar array and added to the password array. 
 
-I have also included an if statment for the null case where a user declines to include any of the four character types in their password, which obviously negates a password from being created. Under these empty array conditions, and alert pops up for the user, telling them characters must be selected, and prompting them to begin the password generation process again.
+I have also included an if statment for the null case where a user declines to include any of the four character types in their password, which obviously negates a password from being created. Under these empty array conditions, and alert pops up for the user, telling them characters must be selected, and then automatically starts the function again from the password length prompt.
 
 Finally, the password array is converted into a string and then given to the user. 
 
